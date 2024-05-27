@@ -16,8 +16,30 @@
 C’est utile notamment pour Yoast qui vient y placer le Google Tag Manager et autres codes de scripts. -->
     <?php wp_body_open(); ?>
 
-    <header class="header">
-        <a href="<?php echo home_url('/'); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="Logo">
-        </a>
+
+    <header class="site__header">
+
+        <nav id="headerNav" class="header__nav">
+
+            <!-- Conteneur pour le logo et l'icone burger  -->
+            <div id="navMobile" class="nav--mobile">
+                <!-- Déclaration du logo -->
+                <a href="<?php echo home_url('/'); ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.svg" alt="Logo">
+                </a>
+                <!-- Déclaration de l'icône du menu hamburger -->
+                <div id="icons"> </div>
+            </div>
+
+            <!-- Déclaration du menu -->
+            <?php wp_nav_menu(
+                array(
+                    'theme_location' => 'main',
+                    'container' => 'ul', // afin d'éviter d'avoir une div autour 
+                    'menu_class' => 'site__header__menu', // ma classe personnalisée 
+                )
+            ); ?>
+        </nav>
+
+
     </header>

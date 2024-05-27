@@ -1,0 +1,40 @@
+/**
+ * Basic typography style for  text
+  */
+html{
+  font-size: 14px;
+}
+
+body a {
+  color: $text-color; 
+ }
+
+
+h1 {
+  font-family: 'SpaceMono-BoldItalic';
+  font-size: 6.86rem;
+ }
+
+h2 {
+  font-family: 'SpaceMono-Italic';
+  font-size: 4.71rem;
+ }
+h3 {
+  font-family: 'SpaceMono-Regular';
+  font-size: 1.28rem;
+  
+}
+p {
+  font-family: 'Poppins-Light';
+  font-size: 1rem;
+  }
+
+  @media (max-width:767px) {
+    h1{
+      font-size: 2rem;
+    }
+    h2{
+      font-size: 3.28rem;
+    }
+   
+  }

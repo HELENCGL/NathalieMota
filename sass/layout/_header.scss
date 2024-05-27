@@ -1,0 +1,161 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.site__header {
+    background-color: white;
+    box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1999;
+    display: flex;
+    justify-content: center;
+
+}
+
+.header__nav {
+    color: $text-color;
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    justify-content: space-around;
+    align-items: center;
+
+    .nav--mobile {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        img {
+            display: block;
+            height: 14px;
+            width: 216px;
+        }
+
+        #icons {
+            cursor: pointer;
+            display: none;
+            color: black;
+
+            &::before {
+                content: "\2630";
+                font-size: xx-large;
+            }
+        }
+
+    }
+
+    ul {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        font-size: 16px;
+        text-transform: uppercase;
+        text-align: right;
+        gap: 40px;
+
+
+        a {
+            text-decoration: none;
+            font-family: 'SpaceMono-Regular';
+            font-style: 16px;
+
+        }
+
+    }
+}
+
+// Compensation de la barre d'administration Wordpress sur les desktop (> 782px)
+.admin-bar {
+    .site__header {
+        top: 32px;
+    }
+}
+
+
+
+
+// Media query pour les mobiles
+
+@media (max-width: 782px) {
+
+    .admin-bar {
+        .site__header {
+            top: 46px;
+
+        }
+    }
+
+    .header__nav {
+        flex-direction: column;
+
+        .nav--mobile {
+            width: 100%;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
+            height: 72px;
+
+            #icons {
+                display: block;
+            }
+
+        }
+
+        ul {
+            background-color: $primary;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            display: none;
+            a{
+             color:white; 
+             font-size: 44px;
+               
+            }
+            
+        }
+
+    }
+
+
+
+
+
+}
+
+
+//
+// Classes appliquées lorsque le menu burger est ouvert
+//
+.header__nav--open {
+    nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav--mobile {
+        #icons {
+            &::before {
+                content: "\2715";
+                font-size: xx-large;
+            }
+        }
+    }
+
+    ul {
+        display: flex;
+    }
+
+}
+
+.body--no-scroll {
+    overflow-y: hidden;
+
+
+}

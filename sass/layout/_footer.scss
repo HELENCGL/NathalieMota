@@ -1,0 +1,47 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+
+.site__footer {
+    height: 40px;
+    background-color: white;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: center;
+
+    .menu {
+        width: 100%;
+        max-width: 1440px;
+        display: flex;
+        list-style-type: none;
+        justify-content: space-around;
+        font-size: 16px;
+        text-transform: uppercase;
+
+        a {
+            text-decoration: none;
+            font-family: 'SpaceMono-Regular';
+            font-style: 16px;
+        }
+
+    }
+
+}
+
+
+@media (max-width:782px) {
+
+    .site__footer {
+        height: 208px;
+
+        .menu {
+            flex-direction: column;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap:24px;
+           
+        }
+    }
+
+}

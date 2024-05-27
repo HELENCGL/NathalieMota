@@ -1,0 +1,206 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("/wp-content/themes/nathaliemota/assets/fonts/Poppins-Light.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "SpaceMono-BoldItalic";
+  src: url("/wp-content/themes/nathaliemota/assets/fonts/SpaceMono-BoldItalic.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "SpaceMono-Italic";
+  src: url("/wp-content/themes/nathaliemota/assets/fonts/SpaceMono-Italic.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "SpaceMono-Regular";
+  src: url("/wp-content/themes/nathaliemota/assets/fonts/SpaceMono-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+}
+/**
+ * Basic typography style for  text
+  */
+html {
+  font-size: 14px;
+}
+
+body a {
+  color: rgb(0, 0, 0);
+}
+
+h1 {
+  font-family: "SpaceMono-BoldItalic";
+  font-size: 6.86rem;
+}
+
+h2 {
+  font-family: "SpaceMono-Italic";
+  font-size: 4.71rem;
+}
+
+h3 {
+  font-family: "SpaceMono-Regular";
+  font-size: 1.28rem;
+}
+
+p {
+  font-family: "Poppins-Light";
+  font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 3.28rem;
+  }
+}
+.site__header {
+  background-color: white;
+  box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.03);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1999;
+  display: flex;
+  justify-content: center;
+}
+
+.header__nav {
+  color: rgb(0, 0, 0);
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  justify-content: space-around;
+  align-items: center;
+}
+.header__nav .nav--mobile {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header__nav .nav--mobile img {
+  display: block;
+  height: 14px;
+  width: 216px;
+}
+.header__nav .nav--mobile #icons {
+  cursor: pointer;
+  display: none;
+  color: black;
+}
+.header__nav .nav--mobile #icons::before {
+  content: "☰";
+  font-size: xx-large;
+}
+.header__nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-align: right;
+  gap: 40px;
+}
+.header__nav ul a {
+  text-decoration: none;
+  font-family: "SpaceMono-Regular";
+  font-style: 16px;
+}
+
+.admin-bar .site__header {
+  top: 32px;
+}
+
+@media (max-width: 782px) {
+  .admin-bar .site__header {
+    top: 46px;
+  }
+  .header__nav {
+    flex-direction: column;
+  }
+  .header__nav .nav--mobile {
+    width: 100%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.09);
+    height: 72px;
+  }
+  .header__nav .nav--mobile #icons {
+    display: block;
+  }
+  .header__nav ul {
+    background-color: rgb(224, 0, 0);
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    display: none;
+  }
+  .header__nav ul a {
+    color: white;
+    font-size: 44px;
+  }
+}
+.header__nav--open nav {
+  display: flex;
+  flex-direction: column;
+}
+.header__nav--open .nav--mobile #icons::before {
+  content: "✕";
+  font-size: xx-large;
+}
+.header__nav--open ul {
+  display: flex;
+}
+
+.body--no-scroll {
+  overflow-y: hidden;
+}
+
+.site__footer {
+  height: 40px;
+  background-color: white;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+.site__footer .menu {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.site__footer .menu a {
+  text-decoration: none;
+  font-family: "SpaceMono-Regular";
+  font-style: 16px;
+}
+
+@media (max-width: 782px) {
+  .site__footer {
+    height: 208px;
+  }
+  .site__footer .menu {
+    flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+}/*# sourceMappingURL=main.css.map */

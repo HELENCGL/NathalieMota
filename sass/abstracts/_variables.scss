@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+/// Couleur du thème
+/// @type Color
+$primary: rgba(224, 0, 0,1) ;
+$secondary: rgba(254, 88, 88, 1) ;
+$tertiary:rgba(255, 214, 214, 1);
+$text-color: rgba(0, 0, 0,1) ;
+$dark-blue:rgba(49, 49, 68, 1);
+$dark-grey: rgba(196, 196, 196, 1);
+$mid-grey: rgba(216, 216, 216, 1);
+$light-grey : rgba(229, 229, 229, 1);
+
+
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1180px !default;
+
+
+
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'small': 320px,
+  'medium': 782px,
+  'large': 1024px,
+) !default;
+

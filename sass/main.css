@@ -6,6 +6,12 @@
   font-weight: 300;
 }
 @font-face {
+  font-family: "Poppins-Medium";
+  src: url("/wp-content/themes/nathaliemota/assets/fonts/Poppins-Medium.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 500;
+}
+@font-face {
   font-family: "SpaceMono-BoldItalic";
   src: url("/wp-content/themes/nathaliemota/assets/fonts/SpaceMono-BoldItalic.woff2") format("woff2");
   font-display: swap;
@@ -119,6 +125,9 @@ p {
   font-family: "SpaceMono-Regular";
   font-style: 16px;
 }
+.header__nav ul a:hover {
+  font-weight: 700;
+}
 
 .admin-bar .site__header {
   top: 32px;
@@ -182,9 +191,10 @@ p {
   max-width: 1440px;
   display: flex;
   list-style-type: none;
-  justify-content: space-around;
+  justify-content: center;
   font-size: 16px;
   text-transform: uppercase;
+  gap: 40px;
 }
 .site__footer .menu a {
   text-decoration: none;
@@ -202,5 +212,128 @@ p {
     justify-content: center;
     align-items: center;
     gap: 24px;
+  }
+}
+.modal {
+  display: none;
+  /* Masquer par défaut */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeInAnimation 500ms ease-out;
+}
+.modal .modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  margin: 15% auto;
+  border: 5px solid black;
+  max-width: 597px;
+  position: relative;
+}
+.modal .modal-content img {
+  height: 106px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  margin-top: 18px;
+}
+.modal .modal-content .close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.modal .modal-content .close-btn:hover, .modal .modal-content .close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.fadeOut {
+  animation: fadeOutAnimation 500ms ease-out;
+}
+
+.contact-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.contact-form p {
+  font-family: "Poppins-Medium";
+  font-size: 12px;
+}
+
+.wpcf7 input[type=text],
+.wpcf7 input[type=email],
+.wpcf7 textarea {
+  width: 263px;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid rgb(184, 187, 194);
+  border-radius: 8px;
+}
+
+.wpcf7 textarea {
+  height: 210px;
+}
+
+.wpcf7-submit {
+  display: grid;
+  margin: auto;
+  font-family: "SpaceMono-Regular";
+  font-size: 12px;
+  background-color: rgb(216, 216, 216);
+  border-radius: 2px;
+  padding: 8px;
+  border: 0px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+  width: 263px;
+  height: 50px;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+@media (max-width: 782px) {
+  .modal .modal-content {
+    max-width: 286px;
+  }
+  .modal .modal-content img {
+    height: 55px;
+  }
+  .wpcf7 input[type=text],
+  .wpcf7 input[type=email],
+  .wpcf7 textarea {
+    width: 190px;
+  }
+  .wpcf7 textarea {
+    height: 150px;
+  }
+  .wpcf7-submit {
+    width: 190px;
   }
 }/*# sourceMappingURL=main.css.map */

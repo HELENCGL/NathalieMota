@@ -63,6 +63,9 @@
             text-decoration: none;
             font-family: 'SpaceMono-Regular';
             font-style: 16px;
+            &:hover {
+                font-weight: 700;
+            }
 
         }
 

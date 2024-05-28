@@ -8,6 +8,13 @@
     font-display: swap;
     font-weight: 300;
   }
+
+  @font-face {
+    font-family: 'Poppins-Medium';
+    src: url("/wp-content/themes/nathaliemota/assets/fonts/Poppins-Medium.woff2") format("woff2");
+    font-display: swap;
+    font-weight: 500;
+  }
   
   @font-face {
     font-family: 'SpaceMono-BoldItalic';

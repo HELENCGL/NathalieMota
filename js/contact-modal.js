@@ -2,20 +2,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var span = document.getElementsByClassName('close-btn')[0];
     var form = document.getElementsByClassName('wpcf7-form')[0];
+    var contactButtons = document.querySelectorAll('.contact-button');
 
     // Ouvrir la modale lorsque l'utilisateur clique sur le bouton
-    contactButton.onclick = function (e) {
-        // Suppression de l'animation en fermeture si elle existe    
-        contactModal.classList.remove('fadeOut');
+
+    contactButtons.forEach(function (button) {
+        button.addEventListener('click', openContactModal);
+    });
+
+    function openContactModal(e) {
+        
+        form.reset(); // Réinitialise tous les champs du formulaire  
+        contactModal.classList.remove('fadeOut'); // Suppression de l'animation en fermeture si elle existe  
         e.preventDefault();
-        contactModal.style.display = 'block';
-        form.reset(); // Réinitialise tous les champs du formulaire
+
+        // Lire la valeur de référence à partir de l'attribut de données
+        var reference = this.getAttribute('data-reference');       
+        if (reference) {
+            refPhoto.value = reference;
+        }
+        contactModal.style.display = 'block';       
+
     }
 
     // Fermer la modale lorsque l'utilisateur clique sur <span> (x)
     span.onclick = function () {
-        // Animation en fermeture          
-        contactModal.classList.add('fadeOut');
+             
+        contactModal.classList.add('fadeOut'); // Animation en fermeture     
 
         setTimeout(function () {
             contactModal.style.display = 'none';

@@ -12,7 +12,7 @@
 
 // 3. Base stuff
 @import
-  // 'base/base',
+  'base/base',
  'base/fonts',
   'base/typography';
  // 'base/helpers';
@@ -24,12 +24,13 @@
 
 // 5. Components
 @import
-'components/contact-modal';
-//   'components/button';
+'components/contact-modal',
+'components/button';
 
 // 6. Page-specific styles
-// @import
-//   'pages/home';
+@import
+  'pages/single-photo';
+  // 'pages/home';
 
 // 7. Themes
 // @import

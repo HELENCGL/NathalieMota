@@ -1,4 +1,40 @@
 @charset "UTF-8";
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+body {
+  line-height: 1.4;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-sizing: border-box;
+}
+
 @font-face {
   font-family: "Poppins-Light";
   src: url("/wp-content/themes/nathaliemota/assets/fonts/Poppins-Light.woff2") format("woff2");
@@ -84,11 +120,12 @@ p {
 }
 
 .header__nav {
+  padding: 0 146px;
   color: rgb(0, 0, 0);
   display: flex;
   width: 100%;
   max-width: 1440px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .header__nav .nav--mobile {
@@ -118,7 +155,8 @@ p {
   font-size: 16px;
   text-transform: uppercase;
   text-align: right;
-  gap: 40px;
+  gap: 30px;
+  padding: 0;
 }
 .header__nav ul a {
   text-decoration: none;
@@ -139,6 +177,7 @@ p {
   }
   .header__nav {
     flex-direction: column;
+    padding: 0;
   }
   .header__nav .nav--mobile {
     width: 100%;
@@ -335,5 +374,108 @@ p {
   }
   .wpcf7-submit {
     width: 190px;
+  }
+}
+button {
+  width: 272px;
+  height: 50px;
+  background-color: rgb(216, 216, 216);
+  border-radius: 2px;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
+  color: black;
+  font-family: "SpaceMono-Regular";
+  font-size: 12px;
+  border: 0;
+  padding: 0;
+}
+button:hover, button:focus {
+  background-color: black;
+  color: white;
+}
+
+.single-photo__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  /* Centre la page horizontalement */
+  padding: 80px 145px 0 145px;
+  /* Optionnel : ajouter du padding pour l'espace intérieur */
+  box-sizing: border-box;
+  /* Inclut le padding dans la largeur totale */
+}
+
+.photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.photo__article {
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 1148px;
+}
+.photo__article--img {
+  width: 50%;
+  padding-left: 5px;
+  margin: auto;
+  float: right;
+}
+.photo__article--img img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+}
+.photo__article--attributs {
+  width: 50%;
+  margin-right: 5px;
+  padding-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 1px solid black;
+}
+.photo__article--attributs h2 {
+  margin: 0;
+}
+.photo__article--attributs p {
+  font-family: "SpaceMono-Regular";
+}
+.photo__contact {
+  height: 118px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.photo__contact__left {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  padding-right: 5px;
+  justify-content: space-between;
+}
+.photo__contact__right {
+  width: 81px;
+  display: flex;
+  flex-direction: column;
+}
+.photo__contact__right--thumbnail {
+  height: 71px;
+}
+.photo__contact__right--arrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.photo__contact__right--arrow img {
+  width: 25px;
+}
+
+@media (max-width: 782px) {
+  .photo {
+    top: 72px;
   }
 }/*# sourceMappingURL=main.css.map */

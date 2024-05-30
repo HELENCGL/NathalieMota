@@ -11,23 +11,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function openContactModal(e) {
-        
+
         form.reset(); // Réinitialise tous les champs du formulaire  
         contactModal.classList.remove('fadeOut'); // Suppression de l'animation en fermeture si elle existe  
         e.preventDefault();
 
         // Lire la valeur de référence à partir de l'attribut de données
-        var reference = this.getAttribute('data-reference');       
+        var reference = this.getAttribute('data-reference');
         if (reference) {
             refPhoto.value = reference;
         }
-        contactModal.style.display = 'block';       
+        contactModal.style.display = 'block';
 
     }
 
     // Fermer la modale lorsque l'utilisateur clique sur <span> (x)
     span.onclick = function () {
-             
+
         contactModal.classList.add('fadeOut'); // Animation en fermeture     
 
         setTimeout(function () {

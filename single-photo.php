@@ -6,12 +6,13 @@
     while (have_posts()):
       the_post(); ?>
 
+
       <div id="divPhoto" class="photo">
 
         <article class="photo__article">
-
+          <?php $currentPhotoID = get_the_ID(); ?>
           <div id="divPhotoImg" class="photo__article--img">
-            <?php the_post_thumbnail(); ?>
+            <?php the_post_thumbnail('large'); ?>
           </div>
 
           <div class="photo__article--attributs">
@@ -28,11 +29,13 @@
             <!-- Conversion du tableau en chaîne de caractères séparée par des virgules avec implode(', ', $term_list) -->
             <p> CATÉGORIE : <?php
             $categories = get_the_terms(get_the_ID(), 'categorie');
+            global $category_list;
             if ($categories && !is_wp_error($categories)) {
               $category_list = wp_list_pluck($categories, 'name');
               echo esc_html(implode(', ', $category_list));
             }
             ?></p>
+
 
             <p> FORMAT : <?php
             $formats = get_the_terms(get_the_ID(), 'format');
@@ -59,9 +62,9 @@
           </div>
 
           <div class="photo__contact__right">
-            <div class="photo__contact__right--thumbnail">
-            
-            </div>
+            <!-- <div class="photo__contact__right--thumbnail"> -->
+              <?php the_post_thumbnail('thumbnail'); ?>
+            <!-- </div> -->
 
             <div class="photo__contact__right--arrow">
               <!-- Ajout des deux images pour les flèches du carroussel -->
@@ -77,6 +80,36 @@
         </div>
 
       </div>
+
+      <div class="otherPhoto">
+        <h3>Vous aimerez AUSSI</h3>
+
+
+        <?php 
+        $args = array(
+          'post_type' => 'photo',
+          'posts_per_page' => 2,
+          'orderby' => 'rand',
+          'post__not_in' => [$currentPhotoID],
+          'tax_query' => array(
+            array(
+              'taxonomy' => 'categorie',
+              'field' => 'slug',
+              'terms' => $category_list
+            ),
+          ),
+        );
+
+        // Passer les arguments au template part
+        set_query_var('args', $args);
+       
+        // Appel du template part
+        get_template_part('parts/photo_block');
+
+        ?>
+
+      </div>
+
 
     <?php endwhile; endif; ?>
 </main>

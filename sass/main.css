@@ -235,7 +235,7 @@ p {
   text-transform: uppercase;
   gap: 40px;
 }
-.site__footer .menu a {
+.site__footer .menu li, .site__footer .menu a {
   text-decoration: none;
   font-family: "SpaceMono-Regular";
   font-style: 16px;
@@ -251,6 +251,7 @@ p {
     justify-content: center;
     align-items: center;
     gap: 24px;
+    padding: 0;
   }
 }
 .modal {
@@ -376,6 +377,40 @@ p {
     width: 190px;
   }
 }
+.gallery {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 100px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.gallery li {
+  max-height: 495px;
+  width: 49%;
+}
+.gallery li img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 782px) {
+  .gallery {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 0 0 20px 0;
+  }
+  .gallery li {
+    height: 278px;
+    width: 317px;
+  }
+  .gallery li img {
+    max-width: 317px;
+  }
+}
 button {
   width: 272px;
   height: 50px;
@@ -397,8 +432,8 @@ button:hover, button:focus {
   max-width: 1440px;
   margin: 0 auto;
   /* Centre la page horizontalement */
-  padding: 80px 145px 0 145px;
-  /* Optionnel : ajouter du padding pour l'espace intérieur */
+  padding: 80px 10% 0 10%;
+  /* ajouter du padding pour l'espace intérieur */
   box-sizing: border-box;
   /* Inclut le padding dans la largeur totale */
 }
@@ -406,8 +441,6 @@ button:hover, button:focus {
 .photo {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  position: relative;
 }
 .photo__article {
   display: flex;
@@ -415,10 +448,8 @@ button:hover, button:focus {
   max-width: 1148px;
 }
 .photo__article--img {
-  width: 50%;
+  flex: 50%;
   padding-left: 5px;
-  margin: auto;
-  float: right;
 }
 .photo__article--img img {
   -o-object-fit: contain;
@@ -461,9 +492,14 @@ button:hover, button:focus {
   width: 81px;
   display: flex;
   flex-direction: column;
+  height: 118px;
 }
-.photo__contact__right--thumbnail {
+.photo__contact__right img {
   height: 71px;
+  width: 81px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-top: 10px;
 }
 .photo__contact__right--arrow {
   display: flex;
@@ -472,10 +508,56 @@ button:hover, button:focus {
 }
 .photo__contact__right--arrow img {
   width: 25px;
+  height: 15px;
+}
+
+.otherPhoto h3 {
+  padding-top: 50px;
 }
 
 @media (max-width: 782px) {
-  .photo {
-    top: 72px;
+  .single-photo__container {
+    padding: 80px 0 0 0;
+  }
+  .photo__article {
+    flex-direction: column;
+    align-items: center;
+  }
+  .photo__article--img {
+    flex: 50%;
+    padding: 0;
+    margin: auto;
+  }
+  .photo__article--img img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    max-width: 100%;
+    max-height: 397px;
+  }
+  .photo__article--attributs {
+    width: 262px;
+    padding: 0;
+    border-bottom: 0px;
+  }
+  .photo__contact {
+    height: 135px;
+  }
+  .photo__contact__left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    border-top: 1px solid black;
+  }
+  .photo__contact__left p {
+    width: 263px;
+  }
+  .photo__contact__right {
+    display: none;
+  }
+  .otherPhoto h3 {
+    margin: 0;
+    padding: 25px 0 25px 0;
+    text-align: center;
   }
 }/*# sourceMappingURL=main.css.map */

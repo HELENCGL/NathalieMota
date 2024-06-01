@@ -54,7 +54,7 @@ add_filter('wp_nav_menu_items', 'add_contact_btn_to_menu', 10, 2);
 function add_mention_to_menu($items, $args)
 {
     if ($args->theme_location == 'footer') {
-        $items .= '<li class="menu-item"><a href="#">Tous droits réservés</a></li>';
+        $items .= '<li class="menu-item">Tous droits réservés</li>';
     }
     return $items;
 }

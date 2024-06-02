@@ -388,6 +388,7 @@ p {
 .gallery li {
   max-height: 495px;
   width: 49%;
+  padding-bottom: 20px;
 }
 .gallery li img {
   height: 100%;
@@ -406,6 +407,7 @@ p {
   .gallery li {
     height: 278px;
     width: 317px;
+    padding-bottom: 0;
   }
   .gallery li img {
     max-width: 317px;
@@ -451,6 +453,20 @@ button:hover, button:focus {
   -o-object-fit: cover;
      object-fit: cover;
   box-sizing: content-box;
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photos-list {
+  max-width: 1440px;
+  padding: 0 10% 0 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (max-width: 782px) {

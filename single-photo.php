@@ -63,7 +63,7 @@
 
           <div class="photo__contact__right">
             <!-- <div class="photo__contact__right--thumbnail"> -->
-              <?php the_post_thumbnail('thumbnail'); ?>
+            <?php the_post_thumbnail('thumbnail'); ?>
             <!-- </div> -->
 
             <div class="photo__contact__right--arrow">
@@ -85,7 +85,7 @@
         <h3>Vous aimerez AUSSI</h3>
 
 
-        <?php 
+        <?php
         $args = array(
           'post_type' => 'photo',
           'posts_per_page' => 2,
@@ -100,12 +100,28 @@
           ),
         );
 
-        // Passer les arguments au template part
-        set_query_var('args', $args);
-       
-        // Appel du template part
-        get_template_part('parts/photo_block');
+        $my_query = new WP_Query($args);
 
+        add_image_size('custom-size', 564, 495, true);
+
+
+        if ($my_query->have_posts()):
+          ?>
+          <ul class="gallery">
+
+            <?php
+            while ($my_query->have_posts()):
+              $my_query->the_post();
+              // Appel du template part d'affichage des list items
+              get_template_part('parts/photo_block');
+
+            endwhile;
+            ?>
+
+          </ul>
+
+        <?php endif;
+        wp_reset_postdata(); // On réinitialise les données
         ?>
 
       </div>

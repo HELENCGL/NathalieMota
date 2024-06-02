@@ -26,6 +26,7 @@ function nmota_scripts()
     if (is_singular('photo')) {
         wp_enqueue_script('adjustHeight',get_template_directory_uri() . '/js/single-photo.js',array(),'1.0',true);
     }
+    wp_enqueue_script('FrontPageHero', get_template_directory_uri() . '/js/front-page-hero.js', array(), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'nmota_scripts');
 

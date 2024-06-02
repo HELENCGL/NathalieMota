@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
 // 1. Configuration and helpers
-@import
-  'abstracts/variables';
+@import 'abstracts/variables';
 //   'abstracts/functions',
 //   'abstracts/mixins';
 
@@ -11,28 +10,25 @@
 //   'vendors/normalize';
 
 // 3. Base stuff
-@import
-  'base/base',
- 'base/fonts',
-  'base/typography';
- // 'base/helpers';
+@import 'base/base',
+'base/fonts',
+'base/typography';
+// 'base/helpers';
 
 // 4. Layout-related sections
-@import
- 'layout/header',
- 'layout/footer';
+@import 'layout/header',
+'layout/footer';
 
 // 5. Components
-@import
-'components/contact-modal',
+@import 'components/contact-modal',
 'components/photo_block',
 'components/button';
 
 // 6. Page-specific styles
-@import
-  'pages/single-photo';
-  // 'pages/home';
+@import 'pages/front-page',
+'pages/single-photo';
+// 'pages/home';
 
 // 7. Themes
 // @import
-  //'themes/default';
+//'themes/default';

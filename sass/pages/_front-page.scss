@@ -1,0 +1,33 @@
+.front-page__container {   
+    margin: 0 auto; // Centre la page horizontalement
+    padding: 80px 0 0 0 ;
+    box-sizing: border-box; // Inclut le padding dans la largeur totale 
+}
+
+.hero {
+    background-size: cover;  // Assure que l'image couvre toute la zone
+    background-position: center;  // Centre l'image
+    background-repeat: no-repeat;  // Empêche l'image de se répéter
+    height: 962px;  // Hauteur de la section
+    width: 100lvw;  // Largeur complète de l'écran
+    display: flex;  // Pour aligner le contenu de la section
+    align-items: center;  // Centre le contenu verticalement
+    justify-content: center;  // Centre le contenu horizontalement
+
+    img{
+        max-width:1000px;
+        min-width: 248px;
+        padding : 0 50px 0 50px;
+        object-fit: cover;
+        box-sizing: content-box;
+    }
+    
+}
+
+
+@media (max-width : 782px) {
+    .hero {
+        height: 250px;
+        
+    }
+}

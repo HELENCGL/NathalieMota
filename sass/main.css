@@ -428,6 +428,36 @@ button:hover, button:focus {
   color: white;
 }
 
+.front-page__container {
+  margin: 0 auto;
+  padding: 80px 0 0 0;
+  box-sizing: border-box;
+}
+
+.hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 962px;
+  width: 100lvw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero img {
+  max-width: 1000px;
+  min-width: 248px;
+  padding: 0 50px 0 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-sizing: content-box;
+}
+
+@media (max-width: 782px) {
+  .hero {
+    height: 250px;
+  }
+}
 .single-photo__container {
   max-width: 1440px;
   margin: 0 auto;

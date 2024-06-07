@@ -50,7 +50,64 @@ if ($images_query->have_posts()) {
             alt="Photographe Event">
     </div>
 
+
+
+
     <div class="portfolio">
+
+
+        <div class="filters">
+            <?php
+            // Récupérer les termes des  taxonomies format et categorie
+            $formats = get_terms(
+                array(
+                    'taxonomy' => 'format',
+                    'hide_empty' => false,
+                )
+            );
+
+            $categories = get_terms(
+                array(
+                    'taxonomy' => 'categorie',
+                    'hide_empty' => false,
+                )
+            );
+
+            ?>
+            <!-- Création des listes déroulantes -->
+
+            <form class="filters--left" id="filter-form--left" method="GET">
+                <select data-placeholder="CATEGORIES" class="nm-select2" name="categorie" id="categorie-select">
+                    <option></option>
+                    <?php foreach ($categories as $categorie) { ?>
+                        <option value="<?php echo esc_attr($categorie->slug); ?>">
+                            <?php echo esc_html($categorie->name); ?>
+                        </option>
+                    <?php } ?>
+                    <option value="all">Toutes les catégories</option>
+                </select>
+
+                <select data-placeholder="FORMATS" class="nm-select2" name="format" id="format-select">
+                    <option></option>
+                    <?php foreach ($formats as $format) { ?>
+                        <option value="<?php echo esc_attr($format->slug); ?>"><?php echo esc_html($format->name); ?>
+                        </option>
+                    <?php } ?>
+                    <option value="all">Tous les formats</option>
+                </select>
+            </form>
+
+
+            <form class="filters--right" id="filter-form--right" method="GET">
+                <select data-placeholder="TRIER PAR" class="nm-select2" name="order" id="order-select">
+                    <option></option>
+                    <option value="DESC">Les plus récentes en premier</option>
+                    <option value="ASC">Les plus anciennes en premier</option>
+                </select>
+            </form>
+
+
+        </div>
 
         <div class="photos-list">
             <?php
@@ -58,13 +115,14 @@ if ($images_query->have_posts()) {
                 'post_type' => 'photo',
                 'posts_per_page' => 8,
                 'paged' => 1,
+                'orderby' => 'date',
+                'order' => 'DESC',
             );
-
 
 
             $my_query = new WP_Query($args);
 
-            add_image_size('custom-size', 564, 495, true);
+
 
 
             if ($my_query->have_posts()):
@@ -85,8 +143,9 @@ if ($images_query->have_posts()) {
             <?php endif;
             wp_reset_postdata(); // On réinitialise les données
             ?>
-
+            <p id="messEndLoad"> Vous avez atteint la fin</p>
             <button id="buttonLoadMore">Charger plus</button>
+
 
         </div>
 

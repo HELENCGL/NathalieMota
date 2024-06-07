@@ -46,7 +46,7 @@
             ?></p>
 
             <p> TYPE : <?php echo esc_html(get_field('type')[0]); ?></p>
-            <p> ANNÉE : <?php echo esc_html(get_field('annee')); ?></p>
+            <p> ANNÉE : <?php echo get_the_date('Y'); ?></p>
           </div>
 
 
@@ -62,16 +62,38 @@
           </div>
 
           <div class="photo__contact__right">
-            <!-- <div class="photo__contact__right--thumbnail"> -->
-            <?php the_post_thumbnail('thumbnail'); ?>
-            <!-- </div> -->
+            <?php
+            // Recherche des photos précédente et suivante
+            $next_post = get_next_post();
+            $prev_post = get_previous_post();
+            // Utiliser le post en cours si le post suivant n'existe pas
+            if (!$next_post) {
+              $next_post = get_post(get_the_ID());            }
 
-            <div class="photo__contact__right--arrow">
-              <!-- Ajout des deux images pour les flèches du carroussel -->
-              <img id="leftArrow" class="arrow arrow_left"
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/left-arrow.svg" alt="fleche gauche">
-              <img id="rightArrow" class="arrow arrow_right"
-                src="<?php echo get_template_directory_uri(); ?>/assets/img/right-arrow.svg" alt="fleche droite">
+            // Utiliser le post en cours si le post précédent n'existe pas
+            if (!$prev_post) {
+              $prev_post = get_post(get_the_ID());
+            }
+
+            ?>
+
+            <!-- Ajout des deux images pour les flèches de la pagination-->
+            <a class="leftArrow" href="<?php echo get_permalink($prev_post->ID) ?>">
+              <img id="leftArrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/left-arrow.svg"
+                alt="fleche gauche">
+            </a>
+
+            <div class="prevThumbnail">
+              <?php echo get_the_post_thumbnail($prev_post->ID, 'thumbnail'); ?>
+            </div>
+
+            <a class="rightArrow" href="<?php echo get_permalink($next_post->ID) ?>">
+              <img id="rightArrow" src="<?php echo get_template_directory_uri(); ?>/assets/img/right-arrow.svg"
+                alt="fleche droite">
+            </a>
+
+            <div class="nextThumbnail">
+              <?php echo get_the_post_thumbnail($next_post->ID, 'thumbnail'); ?>
             </div>
 
 
@@ -101,8 +123,6 @@
         );
 
         $my_query = new WP_Query($args);
-
-        add_image_size('custom-size', 564, 495, true);
 
 
         if ($my_query->have_posts()):

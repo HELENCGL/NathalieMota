@@ -1,15 +1,16 @@
 .gallery {
+    max-width:1440px;
+    width:100%;
     list-style-type: none;
     padding: 0;
-    margin: 0 0 100px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin: 0 0 30px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
    
     li {
-           max-height: 495px;
-           width:49%;
-           padding-bottom: 20px;
+           height: 495px;
+           
        
         img {
             height: 100%;
@@ -20,11 +21,11 @@
 }
 
 @media (max-width : 782px) {
-    .gallery {       
-        flex-direction: column;
-        gap:20px;
+    .gallery {   
+        grid-template-columns: 1fr;    
         align-items: center;
         margin: 0 0 20px 0;
+        width:auto;
        
         li {
                 height: 278px;

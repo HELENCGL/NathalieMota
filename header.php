@@ -35,7 +35,7 @@ C’est utile notamment pour Yoast qui vient y placer le Google Tag Manager et a
             <?php wp_nav_menu(
                 array(
                     'theme_location' => 'main',
-                    'container' => 'ul', // afin d'éviter d'avoir une div autour 
+                    'container' => 'ul', // Eviter d'avoir une div autour 
                     'menu_class' => 'site__header__menu', // ma classe personnalisée 
                 )
             ); ?>

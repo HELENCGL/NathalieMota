@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function openContactModal(e) {
 
-        form.reset(); // Réinitialise tous les champs du formulaire  
-        contactModal.classList.remove('fadeOut'); // Suppression de l'animation en fermeture si elle existe  
+        form.reset(); // Réinitialiser tous les champs du formulaire  
+        contactModal.classList.remove('fadeOut'); // Supprimer l'animation en fermeture si elle existe  
         e.preventDefault();
 
         // Lire la valeur de référence à partir de l'attribut de données

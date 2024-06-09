@@ -9,6 +9,10 @@
 
     <!-- Appel de la modale de contact -->
     <?php get_template_part('parts/contact-modal'); ?>
+    
+    <!-- Appel de la lightbox d'affichage plein écran -->
+    <?php get_template_part('parts/lightbox'); ?>
+
 
 </footer>
 

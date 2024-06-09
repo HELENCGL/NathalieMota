@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', openContactModal);
     });
 
-    function openContactModal(e) {
+    function openContactModal(event) {
 
         form.reset(); // Réinitialiser tous les champs du formulaire  
         contactModal.classList.remove('fadeOut'); // Supprimer l'animation en fermeture si elle existe  
-        e.preventDefault();
+        event.preventDefault();
 
-        // Lire la valeur de référence à partir de l'attribut de données
+        // Lire la valeur de référence à partir de l'attribut de données passé en paramètre du bouton Contact
         var reference = this.getAttribute('data-reference');
         if (reference) {
             refPhoto.value = reference;

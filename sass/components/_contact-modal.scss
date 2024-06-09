@@ -10,21 +10,17 @@
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
     animation: fadeInAnimation 500ms ease-out ;
-    
-   
-
+  
     .modal-content {
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: white;
-        margin: 10% auto;
+        margin: 100px auto;
         border: 5px solid black;
         max-width: 597px;
         position: relative;
-       
-       
-
+   
         img {
             height: 106px;
             object-fit: cover;
@@ -94,7 +90,16 @@
     box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02);
     width: 263px;
     height: 50px;
-
+    transition: all 500ms ease-out; // Transition smart animate ease out 500ms 
+    &:hover,
+    &:focus {
+        background-color: black;
+        color: white;
+    }
+    &:active {
+        transform: scale(0.95); /* Ajoute un léger rétrécissement au clic */
+        background-color: darken($mid-grey, 10%); /* Change la couleur au clic */
+    }
 
 }
 

@@ -23,12 +23,12 @@ function nmota_scripts()
 {
     wp_enqueue_script('burgerMenu', get_template_directory_uri() . '/js/header.js', array(), '1.0', true);
     wp_enqueue_script('contactModal', get_template_directory_uri() . '/js/contact-modal.js', array(), '1.0', true);
+    wp_enqueue_script('galerie', get_template_directory_uri() . '/js/galerie.js', ['jquery'], '1.0', true);
     if (is_singular('photo')) {
         wp_enqueue_script('adjustHeight', get_template_directory_uri() . '/js/single-photo.js', array(), '1.0', true);
     }
     if (is_front_page()) {
-        wp_enqueue_script('FrontPageHero', get_template_directory_uri() . '/js/front-page-hero.js', array(), '1.0', true);
-        wp_enqueue_script('Ajax-Load-More', get_template_directory_uri() . '/js/ajax-filter-loadmore.js', ['jquery'], '1.0', true);
+        wp_enqueue_script('FrontPageHero', get_template_directory_uri() . '/js/front-page-hero.js', array(), '1.0', true);       
     }
 }
 add_action('wp_enqueue_scripts', 'nmota_scripts');
@@ -64,7 +64,7 @@ function add_mention_to_menu($items, $args)
 }
 add_filter('wp_nav_menu_items', 'add_mention_to_menu', 10, 2);
 
-// Fonction filtree et load-more de la page principale
+// Fonctions 'filtrer' et 'charger plus'  de la page principale
 function nathaliemota_filter_loadmore()
 {
     // Récupérer les valeurs des filtres avec la méthode POST

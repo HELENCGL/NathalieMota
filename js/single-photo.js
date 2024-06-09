@@ -3,14 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const mediaQuery = window.matchMedia('(max-width: 782px)');
 
-    // Ajuster la hauteur de la div Photo au chargement de la page
-    adjustElementHeight();
-
-
-    // Réajuster la hauteur de la div Photo lors du redimensionnement de la fenêtre
-    window.addEventListener('resize', adjustElementHeight);
-
-    // Fonction
+    // Fonction d'ajustement de la hauteur de la div Photo
     function adjustElementHeight() {
         if (!mediaQuery.matches) {
             const viewportHeight = window.innerHeight;
@@ -22,4 +15,13 @@ document.addEventListener('DOMContentLoaded', function () {
             divPhotoImg.style.height = imgHeight + 'px';
         }
     }
+
+    // Ajuster la hauteur de la div Photo au chargement de la page
+    adjustElementHeight();
+
+
+    // Réajuster la hauteur de la div Photo lors du redimensionnement de la fenêtre
+    window.addEventListener('resize', adjustElementHeight);
+
+    
 })

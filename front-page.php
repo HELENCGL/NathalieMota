@@ -44,18 +44,18 @@ if ($images_query->have_posts()) {
 
 
 <main class="front-page__container">
-
+    <!-- Section Hero   -->
+    <!-- Définir une div avec un attribut permettant de passer l'image en paramètre -->
     <div class="hero" data-background-image="<?php echo esc_url($random_image_url); ?>">
-        <img src="<?php echo get_template_directory_uri() . '/assets/img/photographe-event w1000.png' ?>"
-            alt="Photographe Event">
+        <h1>PHOTOGRAPHE EVENT</h1>
     </div>
 
 
 
-
+    <!-- Section portfolio -->
     <div class="portfolio">
 
-
+        <!-- Section des filtres -->
         <div class="filters">
             <?php
             // Récupérer les termes des  taxonomies format et categorie
@@ -74,7 +74,7 @@ if ($images_query->have_posts()) {
             );
 
             ?>
-            <!-- Création des listes déroulantes -->
+            <!-- Créer les listes déroulantes -->
 
             <form class="filters--left" id="filter-form--left" method="GET">
                 <select data-placeholder="CATEGORIES" class="nm-select2" name="categorie" id="categorie-select">
@@ -109,8 +109,12 @@ if ($images_query->have_posts()) {
 
         </div>
 
+        <!-- Afficher la galerie au chargement de la page-->
+
         <div class="photos-list">
+
             <?php
+            // Construire l'argument de requête au chargement initial de la page
             $args = array(
                 'post_type' => 'photo',
                 'posts_per_page' => 8,
@@ -118,18 +122,15 @@ if ($images_query->have_posts()) {
                 'orderby' => 'date',
                 'order' => 'DESC',
             );
-
-
+            // Requête en base de données
             $my_query = new WP_Query($args);
-
-
-
 
             if ($my_query->have_posts()):
                 ?>
+                <!-- Créer la liste des photos -->
                 <ul class="gallery">
-
                     <?php
+                    //Boucle WordPress
                     while ($my_query->have_posts()):
                         $my_query->the_post();
                         // Appel du template part d'affichage des list items
@@ -143,16 +144,13 @@ if ($images_query->have_posts()) {
             <?php endif;
             wp_reset_postdata(); // On réinitialise les données
             ?>
+            <!-- Bouton "Charger plus" et message lorsqu'il n'y a plus rien à charger -->
             <p id="messEndLoad"> Vous avez atteint la fin</p>
             <button id="buttonLoadMore">Charger plus</button>
 
-
         </div>
 
-
     </div>
-
-
 
 </main>
 

@@ -103,7 +103,7 @@
 
       </div>
 
-      <div class="otherPhoto">
+      <div class="otherPhotos">
         <h3>Vous aimerez AUSSI</h3>
 
 

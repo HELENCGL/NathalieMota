@@ -45,6 +45,7 @@ jQuery(document).ready(function ($) {
                 order: filters.order
             },
             success: function (res) {
+
                 if (loadMore) {   // Cas du bouton charger plus
                     if (currentPage >= res.max) {  // Il n'y a plus de photos à charger
                         $('#buttonLoadMore').hide();  // Masquer le bouton charger plus
@@ -54,6 +55,7 @@ jQuery(document).ready(function ($) {
                     $('.trigger-full-screen').on('click', displayLightbox); // Positionner l'event handler sur l'icone full screen de l'overlay
                 }
                 else {  // Cas des filtres
+                    
                     $('.gallery').html(res.html);  // Remplacer l'affichage de la galerie par les nouvelles données
                     $('.trigger-full-screen').on('click', displayLightbox); // Positionner l'event handler sur l'icone full screen de l'overlay
                 }

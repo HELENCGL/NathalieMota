@@ -115,10 +115,10 @@ function nathaliemota_filter_loadmore()
             $response .= get_template_part('parts/photo_block');
         endwhile;
 
-        $output = ob_get_contents();  // Vider le buffer de sorie dans la variable $output
+        $output = ob_get_contents();  // Vider le buffer de sortie dans la variable $output
         ob_end_clean(); // Fermer le buffer de sortie
     } else {
-        $response = '';
+        $output = '';
     }
     // Fabriquer l'objet de retour
     $result = [
